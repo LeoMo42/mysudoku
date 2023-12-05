@@ -217,17 +217,17 @@ function App() {
           <Loading />
         ) : (
           <>
-            {!activeGrid && <h1>Welcome to MySudoku!</h1>}
+            {!activeGrid && <h1>Добро пожаловать в Мир Судоку</h1>}
             <Button disabled={loading} onClick={clickNewGame}>
-              New Game
+              Новая игра
             </Button>
             {activeGrid && selectMode === null && (
               <Button disabled={loading} onClick={clickRestart}>
-                Restart
+                Сначала
               </Button>
             )}
             {complete && selectMode === null && (
-              <h1>{`Puzzle completed in ${secondsToTimeString(timer)}!`}</h1>
+              <h1>{`Судоку решен за ${secondsToTimeString(timer)}!`}</h1>
             )}
             {message && <h3>{message}</h3>}
             {selectMode === null && !complete && activeGrid && (
@@ -255,7 +255,7 @@ function App() {
       {selectMode === null && activeGrid && (
         <div className="game-container">
           {pause && !complete ? (
-            <h1>Game is paused.</h1>
+            <h1>Игра на паузе.</h1>
           ) : (
             <>
               <SudokuBoard

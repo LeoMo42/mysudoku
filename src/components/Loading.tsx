@@ -5,7 +5,7 @@ const Loading = () => {
 
   return (
     <div className='loading-container'>
-      <h2>Workin' it... </h2>
+      <h2>Подготовка... </h2>
       <Spinner animation="border" />
     </div>
   );

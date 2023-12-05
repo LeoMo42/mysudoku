@@ -18,7 +18,7 @@ const Timer = (props: TimerProps) => {
         {secondsToTimeString(time)}
       </span>
       { !disabled && 
-        <Button onClick={handlePause}>{timerPaused ? 'Resume' : 'Pause'}</Button>
+        <Button onClick={handlePause}>{timerPaused ? 'Продолжить' : 'Пауза'}</Button>
       }
     </div>
   );

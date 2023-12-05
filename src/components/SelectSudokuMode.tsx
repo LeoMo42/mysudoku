@@ -8,41 +8,35 @@ const SelectSudokuMode = (props: SelectSudokuModeProps) => {
   const onConfirm = props.onConfirm;
 
   const classicDescription = {
-    title: 'Classic Sudoku',
-    description: "Regular 9x9 sudoku. Each row, each column, and each 9x9 area must have the numbers 1-9, no duplicates allowed."
+    title: 'Классический Судоку',
+    description: "Обычный 9x9 судоку. Каждая строка, каждая колонка, и каждая область 3x3 должны содержать числа от 1 до 9 без повторов."
+    // description: "Regular 9x9 sudoku. Each row, each column, and each 9x9 area must have the numbers 1-9, no duplicates allowed."
   };
   const diagonalDescription = {
-    title: 'Diagonal Sudoku',
-    description: "Just like classic sudoku, except now both diagonals have the numbers 1-9 also, no duplicates."
+    title: 'Диагональный Судоку',
+    description: "В дополнении к правилам Классического судоку добавляется еще одно правило, что обе диагонали должны содержать числа от 1 до 9 без повторов."
+    // description: "Just like classic sudoku, except now both diagonals have the numbers 1-9 also, no duplicates."
   };
   const oddDescription = {
-    title: 'Odd Sudoku',
-    description: "Just like classic sudoku, but the highlighted squares must be odd numbers."
+    title: 'Нечетный Судоку',
+    description: "В дополнении к правилам Классического судоку добавляется еще одно правило, что все подсвеченные клетки содержат только нечетные числа. Нечетные числа это 1, 3, 5, 7, 9"
+    // description: "Just like classic sudoku, but the highlighted squares must be odd numbers."
   };
   const evenDescription = {
-    title: 'Even Sudoku',
-    description: "Just like classic sudoku, but the highlighted squares must be even numbers."
-  };
-  const sumDescription = {
-    title: 'Sum Sudoku',
-    description: ""
-  };
-  const multiDescription = {
-    title: 'Multi Sudoku',
-    description: ""
+    title: 'Четный Судоку',
+    description: "В дополнении к правилам Классического судоку добавляется еще одно правило, что все подсвеченные клетки содержат только четные числа. Четные числа это 2, 4, 6, 8"
+    // description: "Just like classic sudoku, but the highlighted squares must be even numbers."
   };
 
   let displayDescription;
-  if (selectedMode === 'multi') displayDescription = multiDescription;
-  else if (selectedMode === 'diagonal') displayDescription = diagonalDescription;
+  if (selectedMode === 'diagonal') displayDescription = diagonalDescription;
   else if (selectedMode === 'odd') displayDescription = oddDescription;
   else if (selectedMode === 'even') displayDescription = evenDescription;
-  else if (selectedMode === 'sum') displayDescription = sumDescription;
   else displayDescription = classicDescription;
 
   return (
     <div className='select-mode-container'>
-      <h2>Select mode:</h2>   
+      <h2>Выберите тип судоку:</h2>
       
       <div className='buttons-container'>
 
@@ -51,7 +45,7 @@ const SelectSudokuMode = (props: SelectSudokuModeProps) => {
           className='classic-button' 
           onClick={() => setSelectedMode('classic')}
           >
-          Classic
+          Классический
         </Button>
 
         <Button 
@@ -59,7 +53,7 @@ const SelectSudokuMode = (props: SelectSudokuModeProps) => {
           className='diagonal-button' 
           onClick={() => setSelectedMode('diagonal')}
         >
-          Diagonal
+          Диагнональный
         </Button>
 
 
@@ -69,7 +63,7 @@ const SelectSudokuMode = (props: SelectSudokuModeProps) => {
           onClick={() => setSelectedMode('odd')}
 
         >
-          Odd
+          Нечетный
         </Button>
         
         <Button 
@@ -77,11 +71,9 @@ const SelectSudokuMode = (props: SelectSudokuModeProps) => {
           className='even-button' 
           onClick={() => setSelectedMode('even')}
         >
-          Even
+          Четный
         </Button>
         
-        <Button variant={selectedMode === 'sum' ? 'secondary' : 'primary'}disabled className='sum-button' onClick={() => setSelectedMode('sum')}>Sum</Button>
-        <Button variant={selectedMode === 'multi' ? 'secondary' : 'primary'} disabled className='multi-button' onClick={() => setSelectedMode('multi')}>Multi</Button>
       </div>
 
       { selectedMode && displayDescription && 
@@ -89,7 +81,7 @@ const SelectSudokuMode = (props: SelectSudokuModeProps) => {
           <div className='description'>
             <div className='description-header'>
               <h3 className='description-title'>{displayDescription && displayDescription.title}</h3>
-              <Button className='confirm-button' variant='success' onClick={() => onConfirm(selectedMode)}>Continue</Button>
+              <Button className='confirm-button' variant='success' onClick={() => onConfirm(selectedMode)}>Продолжить</Button>
             </div>
             <p className='description-body'>{displayDescription && displayDescription.description}</p>
           </div>
